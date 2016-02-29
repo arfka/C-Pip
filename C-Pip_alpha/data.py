@@ -6,7 +6,7 @@ import os
 import filecmp
 import commands
 import pip 
-#from pip.operations import *
+from pip.operations import *
 
 
 class Pack:
@@ -151,12 +151,11 @@ def compare_files (f, f1): #compare two files
         return 0
     
     
-def data_extractor (file): #extract libs from a file
-    da = [line.rstrip() for line in open (file)]
-
+def data_extractor(f): #extract libs from a file
+    da = [line.rstrip() for line in open(f)]
     pa = []
     for t in da:
-        tab = t.split('==')
+        tab = t.split(',,')
         pa.append(Pack(tab[0], tab[1]))
     return pa
 
@@ -184,3 +183,5 @@ def ipackage_file(file): #install package from file
         install_package(fo)
     f.close()
     return fo
+
+fetch_new_pack()
