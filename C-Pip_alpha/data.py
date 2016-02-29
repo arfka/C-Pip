@@ -152,13 +152,13 @@ def compare_files (f, f1): #compare two files
     
     
 def data_extractor (file): #extract libs from a file
-    f = open (file, 'rb')
-    pack = []
-    text = f.readlines()
-    for t in text:
-        tab = t.split (',,')
-        pack.append(Pack(tab[0], tab[1]))
-    return pack 
+    da = [line.rstrip() for line in open (file)]
+
+    pa = []
+    for t in da:
+        tab = t.split('==')
+        pa.append(Pack(tab[0], tab[1]))
+    return pa
 
 
 def package_installed(): #display installed package with no seperation
@@ -184,5 +184,3 @@ def ipackage_file(file): #install package from file
         install_package(fo)
     f.close()
     return fo
-    
-    

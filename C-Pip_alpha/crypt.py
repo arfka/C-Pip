@@ -38,4 +38,5 @@ def decrypt_file (file1, file2): #decrypt file using AES
         o = decrypt(l) + '\n'
         f1.write(o)
     f1.close()
-    f.close() 
+    f.close()
+
